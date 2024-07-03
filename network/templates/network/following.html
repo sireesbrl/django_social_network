@@ -1,0 +1,52 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+
+    <h3 id="nav-title">{{ title }}</h1>
+    <div class="container posts">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mx-auto" style="width: 70%;">
+                    {% for post in posts %}
+                        <div class="post" data-post-id="{{ post.id }}">
+                            <span><strong><a href="{% url 'get_profile' profile_id=post.user.id username=post.user %}">@{{ post.user }}</a></strong> {{ post.date }} </span><br>
+                            {% if post.edited %}
+                            Edited
+                            {% endif %}
+                            <hr>
+                            <h3 class="post_content mx-2">{{ post.content }}</h3>
+                            <div class="row mx-1">
+                                {% if post.id in liked_posts %}
+                                    <button class="like_button" style="color: red;">
+                                        <i class="fas fa-heart"></i>
+                                        Likes ({{ post.likes }})
+                                    </button>
+                                {% else %}
+                                    <button class="like_button">
+                                        <i class="fas fa-heart"></i>
+                                        Likes ({{ post.likes }})
+                                    </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            {% if posts.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ posts.previous_page_number }}">Previous</a>
+                                </li>
+                            {% endif %}
+                            {% if posts.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ posts.next_page_number }}">Next</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+{% endblock %}

@@ -1,0 +1,72 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.like_button {
+    border: none;
+    background: none;
+    color: aliceblue;
+  }
+
+.like_button:hover {
+color: red;
+}
+
+.edit_button {
+    border: none;
+    background: none;
+    color: aliceblue;
+  }
+
+.edit_button:hover {
+color: green;
+}
+
+.post {
+    border: 1px solid white;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: rgb(44, 44, 44);
+}
+
+.follow {
+    border: none;
+    background: none;
+    color: aliceblue;
+  }
+
+.follow:hover {
+color: green;
+}
+
+.unfollow {
+    border: none;
+    background: none;
+    color: aliceblue;
+  }
+
+.unfollow:hover {
+color: red;
+}
+
+.followers {
+    border: none;
+    background: none;
+    color: aliceblue;
+  }
+
+.followers:hover {
+color: blue;
+}
+
+.following {
+    border: none;
+    background: none;
+    color: aliceblue;
+  }
+
+.following:hover {
+color: blue;
+}
